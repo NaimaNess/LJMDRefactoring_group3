@@ -33,17 +33,9 @@ clean:
 	rm -f *.x *.xyz
 
 run: test_integration.x
-	@$(eval export LD_LIBRARY_PATH=$(LD_PATH):$(ODIR))
 	./test_integration.x < argon_003.inp
 	cmp argon_003.dat argon_003_serial.reference || exit 1
 	rm -f argon_003.dat	
-
-test: 
-	$(eval export LD_LIBRARY_PATH=$(LD_PATH):$(ODIR))
-	@echo ${LD_LIBRARY_PATH}
-	@echo "LD_PATH" $(LD_PATH)
-
-
 
 
 
